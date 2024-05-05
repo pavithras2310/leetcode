@@ -1,0 +1,21 @@
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int no_of_cookies = s.length;
+        int no_of_children = g.length;
+        int ptr1 = 0;
+        int ptr2 = 0;
+        int count = 0;
+        while(ptr1 < no_of_children && ptr2 < no_of_cookies){
+            if(g[ptr1] <= s[ptr2]){
+                count++;
+                ptr1++;
+                ptr2++;
+            }else{
+                ptr2++;
+            }
+        }
+        return count;           
+    }
+}
