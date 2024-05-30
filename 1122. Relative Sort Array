@@ -1,0 +1,21 @@
+class Solution {
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+        int[] cnt = new int[1001];
+        int[] res = new int[arr1.length];
+        for(int n: arr1){
+            cnt[n]++;
+        }
+        int i = 0;
+        for(int n: arr2){
+            while(cnt[n]-- > 0){
+                res[i++] = n;
+            }
+        }
+        for(int k = 0; k < 1001; k++){
+            while(cnt[k]-- > 0){
+                res[i++] = k;
+            }
+        }
+        return res;
+    }
+}
